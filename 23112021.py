@@ -67,11 +67,18 @@ class NumericalCSVFile(CSVFile):
 
         return numerical_data
 
-testo = CSVFile(name='shampoo_sales.csv')
+print("Inserire il nome del file da analizzare: ")
+nome_file=input()
+flag = isinstance(nome_file,str)
+if flag==False:
+    raise Exception('Hai inserito un valore non riconosciuto come una stringa')
+    exit()
+
+testo = CSVFile(name=nome_file)
 print('Nome del file: "{}"'.format(testo.name))
 print('Dati contenuti nel file: "{}"'.format(testo.get_data()))
 
-testo_numerico = NumericalCSVFile(name = 'shampoo_sales.csv')
+testo_numerico = NumericalCSVFile(name = nome_file)
 print('Nome del file: "{}"'.format(testo_numerico.name))
 print('Dati contenuti nel file: "{}"'.format(testo_numerico.get_data()))
                 
