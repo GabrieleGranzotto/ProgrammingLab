@@ -2,6 +2,9 @@ class CSVFile():
     
     def __init__(self, name):
 
+        if isinstance(name,str)==False:
+            raise Exception('Hai inserito un valore non riconosciuto come una stringa')
+            exit()
         self.name = name
 
         self.can_read = True
@@ -69,10 +72,6 @@ class NumericalCSVFile(CSVFile):
 
 print("Inserire il nome del file da analizzare: ")
 nome_file=input()
-flag = isinstance(nome_file,str)
-if flag==False:
-    raise Exception('Hai inserito un valore non riconosciuto come una stringa')
-    exit()
 
 testo = CSVFile(name=nome_file)
 print('Nome del file: "{}"'.format(testo.name))
